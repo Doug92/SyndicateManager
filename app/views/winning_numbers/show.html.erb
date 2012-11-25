@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Draw date:</b>
+  <%= @winning_number.winning_numbers_date.strftime("%d %b %y") %>
+</p>
+
+<p>
+  <b>Number 1:</b>
+  <%= @winning_number.winning_number_1 %>
+</p>
+
+<p>
+  <b>Number 2:</b>
+  <%= @winning_number.winning_number_2 %>
+</p>
+
+<p>
+  <b>Number 3:</b>
+  <%= @winning_number.winning_number_3 %>
+</p>
+
+<p>
+  <b>Number 4:</b>
+  <%= @winning_number.winning_number_4 %>
+</p>
+
+<p>
+  <b>Number 5:</b>
+  <%= @winning_number.winning_number_5 %>
+</p>
+
+<p>
+  <b>Number 6:</b>
+  <%= @winning_number.winning_number_6 %>
+</p>
+
+<p>
+  <b>Bonus Number:</b>
+  <%= @winning_number.winning_number_bonus %>
+</p>
+
+
+<%= link_to 'Edit', edit_winning_number_path(@winning_number) %> |
+<%= link_to 'Back', winning_numbers_path %>

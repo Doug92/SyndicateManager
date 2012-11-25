@@ -1,0 +1,19 @@
+Thu, 01 Nov 2012 20:50:22 +0000
+doc/README_FOR_APP	Mon, 29 Oct 2012 16:26:05 +0000
+app/controllers/application_controller.rb	Mon, 29 Oct 2012 16:26:03 +0000
+app/controllers/lottery_selections_controller.rb	Mon, 29 Oct 2012 16:41:40 +0000
+app/controllers/payments_controller.rb	Mon, 29 Oct 2012 16:39:30 +0000
+app/controllers/syndicates_controller.rb	Mon, 29 Oct 2012 16:30:11 +0000
+app/controllers/users_controller.rb	Mon, 29 Oct 2012 16:35:44 +0000
+app/controllers/winning_numbers_controller.rb	Mon, 29 Oct 2012 16:42:54 +0000
+app/helpers/application_helper.rb	Mon, 29 Oct 2012 16:26:03 +0000
+app/helpers/lottery_selections_helper.rb	Mon, 29 Oct 2012 16:41:41 +0000
+app/helpers/payments_helper.rb	Mon, 29 Oct 2012 16:39:31 +0000
+app/helpers/syndicates_helper.rb	Mon, 29 Oct 2012 16:30:11 +0000
+app/helpers/users_helper.rb	Mon, 29 Oct 2012 16:35:45 +0000
+app/helpers/winning_numbers_helper.rb	Mon, 29 Oct 2012 16:42:55 +0000
+app/models/lottery_selection.rb	Thu, 01 Nov 2012 20:22:16 +0000
+app/models/payment.rb	Thu, 01 Nov 2012 20:25:48 +0000
+app/models/syndicate.rb	Wed, 31 Oct 2012 22:56:20 +0000
+app/models/user.rb	Thu, 01 Nov 2012 20:25:48 +0000
+app/models/winning_number.rb	Thu, 01 Nov 2012 20:22:15 +0000

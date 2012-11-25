@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: winning_numbers
+#
+#  id                   :integer          not null, primary key
+#  winning_numbers_date :datetime
+#  winning_number_1     :integer
+#  winning_number_2     :integer
+#  winning_number_3     :integer
+#  winning_number_4     :integer
+#  winning_number_5     :integer
+#  winning_number_6     :integer
+#  winning_number_bonus :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  winning_numbers_date: 2012-10-29 16:42:54
+  winning_number_1: 1
+  winning_number_2: 1
+  winning_number_3: 1
+  winning_number_4: 1
+  winning_number_5: 1
+  winning_number_6: 1
+  winning_number_bonus: 1
+
+two:
+  winning_numbers_date: 2012-10-29 16:42:54
+  winning_number_1: 1
+  winning_number_2: 1
+  winning_number_3: 1
+  winning_number_4: 1
+  winning_number_5: 1
+  winning_number_6: 1
+  winning_number_bonus: 1

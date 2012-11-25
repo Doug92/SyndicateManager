@@ -1,0 +1,24 @@
+<h1>Syndicate List</h1>
+
+<table>
+  <tr>
+    <th>Syndicate id</th>
+    <th>Syndicate name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @syndicates.each do |syndicate| %>
+  <tr>
+    <td><%= syndicate.id %></td>
+    <td><%= syndicate.syndicate_name %></td>
+    <td><%= link_to 'Show', syndicate %></td>
+    <td><%= link_to 'Edit', edit_syndicate_path(syndicate) %></td>
+    <td><%= link_to 'Destroy', syndicate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Syndicate', new_syndicate_path %>

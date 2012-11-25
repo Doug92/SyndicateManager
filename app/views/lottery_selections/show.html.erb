@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Syndicate:</b>
+  <%= @lottery_selection.syndicate_id %>
+</p>
+
+<p>
+  <b>Selection 1:</b>
+  <%= @lottery_selection.lottery_selection_1 %>
+</p>
+
+<p>
+  <b>Selection 2:</b>
+  <%= @lottery_selection.lottery_selection_2 %>
+</p>
+
+<p>
+  <b>Selection 3:</b>
+  <%= @lottery_selection.lottery_selection_3 %>
+</p>
+
+<p>
+  <b>Selection 4:</b>
+  <%= @lottery_selection.lottery_selection_4 %>
+</p>
+
+<p>
+  <b>Selection 5:</b>
+  <%= @lottery_selection.lottery_selection_5 %>
+</p>
+
+<p>
+  <b>Selection 6:</b>
+  <%= @lottery_selection.lottery_selection_6 %>
+</p>
+
+<p>
+  <b>Selection date:</b>
+  <%= @lottery_selection.lottery_selection_date.strftime("%d %b %y") %>
+</p>
+
+
+<%= link_to 'Edit', edit_lottery_selection_path(@lottery_selection) %> |
+<%= link_to 'Back', lottery_selections_path %>

@@ -1,0 +1,44 @@
+<h1> User Page </h1>
+<p id="notice"><%= notice %></p>
+
+
+
+
+<p>
+  <b>Surname:</b>
+  <%= @user.user_surname %>
+</p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @user.user_firstname %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>User status:</b>
+  <%= @user.user_status %>
+</p>
+
+<p>
+  <b>Payment status:</b>
+  <%= @user.user_payment_status %>
+</p>
+
+<p>
+  <b>User type:</b>
+  <%= @user.user_type %>
+</p>
+
+<p>
+  <b>Current balance:</b>
+  <%= @user.current_balance %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

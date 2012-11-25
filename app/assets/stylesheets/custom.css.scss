@@ -1,0 +1,129 @@
+@import "bootstrap";
+
+html {
+      //background-color:#FFFFFF;
+      background-image: url('..\public\images\lottery_1518565c.jpg');    //  C:\Users\Doug\college\rails\SyndicateManager\app\assets\images\lottery_1518565c.jpg
+      //background-repeat: repeat;
+      //background-position: left top;
+      //color:#444;
+     // overflow-y: scroll;
+}
+
+
+main_body {
+  padding-top: 60px;
+   text-align:center;
+    color:#fff;
+  background-image: url('assets\images\lottery1518565c.jpg');
+  }
+
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #999;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+#main_body
+{
+    background-color: #f8f8ff ;
+  height:  100%;
+}
+
+#apDiv3 {
+    max-width: 100%;
+	//width:1250px;
+	height:85px;
+	left: 0px;
+	top: 0px;
+	background-color: #327199;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:oblique;
+    border:5px #2e8b57 solid;
+
+
+ }
+#apDiv3 div h1 {
+	font-family: Comic Sans MS, cursive;
+    color: #ffffff;
+    font-size: 4em;}
+
+.main_footer
+    {
+  clear: both;
+  font-size: 1em;
+    position:	relative;
+    width:400px;
+    height:4px;
+    z-index:1;
+    left: 500px;
+    top: 500px;
+    align: bottom;
+  margin-top: -6em;
+}
+
+input, textarea, select, .uneditable-input {
+                  border: 1px solid #bbb;
+                  width: 100%;
+                  padding: 10px;
+                  margin-bottom: 15px;
+                  height: 40px;
+
+                }

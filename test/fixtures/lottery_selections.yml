@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: lottery_selections
+#
+#  id                     :integer          not null, primary key
+#  syndicate_id           :integer
+#  lottery_selection_1    :integer
+#  lottery_selection_2    :integer
+#  lottery_selection_3    :integer
+#  lottery_selection_4    :integer
+#  lottery_selection_5    :integer
+#  lottery_selection_6    :integer
+#  lottery_selection_date :datetime
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  syndicate_id: 1
+  lottery_selection_1: 1
+  lottery_selection_2: 1
+  lottery_selection_3: 1
+  lottery_selection_4: 1
+  lottery_selection_5: 1
+  lottery_selection_6: 1
+  lottery_selection_date: 2012-10-29 16:41:40
+
+two:
+  syndicate_id: 1
+  lottery_selection_1: 1
+  lottery_selection_2: 1
+  lottery_selection_3: 1
+  lottery_selection_4: 1
+  lottery_selection_5: 1
+  lottery_selection_6: 1
+  lottery_selection_date: 2012-10-29 16:41:40

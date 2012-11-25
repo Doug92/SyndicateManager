@@ -1,0 +1,21 @@
+<%= form_for(@syndicate) do |f| %>
+  <% if @syndicate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@syndicate.errors.count, "error") %> prohibited this syndicate from being saved:</h2>
+
+      <ul>
+      <% @syndicate.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :syndicate_name %><br />
+    <%= f.text_field :syndicate_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

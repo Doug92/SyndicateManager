@@ -1,0 +1,62 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+
+    <table>
+            <tr>
+                <td>First Name:</td>
+                <td><%= f.text_field :user_firstname %></td>
+            </tr>
+            <tr>
+                <td>Surname:</td>
+                <td><%= f.text_field :user_surname %></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><%= f.text_field :email %></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><%= f.password_field :password %></td>
+            </tr>
+              <tr>
+                <td>Confirm Password:</td>
+                <td><%= f.password_field :password_confirmation %></td>
+               </tr>
+            <tr>
+                <td>Status:</td>
+                <td><%= f.select :user_status, options_for_select(["new","approved"]) %></td>
+
+            </tr>
+            <tr>
+                <td>Payment Status:</td>
+                <td><%= f.select :user_payment_status, options_for_select(["credit","debit"]) %></td>
+
+            </tr>
+            <tr>
+                <td>User Type:</td>
+
+              <td><%= f.select :user_type, options_for_select(["Manager","Member","Super"]) %></td>
+            </tr>
+            <tr>
+                <td>Balance:</td>
+
+              <td><%= f.select :current_balance, options_for_select([0]) %></td>
+            </tr>
+    </table>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

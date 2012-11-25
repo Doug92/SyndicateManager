@@ -1,0 +1,37 @@
+<h1>Winning Lottery Numbers</h1>
+
+<table>
+  <tr>
+    <th>Draw Date</th>
+    <th>Number 1</th>
+    <th>Number 2</th>
+    <th>Number 3</th>
+    <th>Number 4</th>
+    <th>Number 5</th>
+    <th>Number 6</th>
+    <th>Bonus</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @winning_numbers.each do |winning_number| %>
+  <tr>
+    <td><%= winning_number.winning_numbers_date.strftime("%d %b %y") %></td>
+    <td><%= winning_number.winning_number_1 %></td>
+    <td><%= winning_number.winning_number_2 %></td>
+    <td><%= winning_number.winning_number_3 %></td>
+    <td><%= winning_number.winning_number_4 %></td>
+    <td><%= winning_number.winning_number_5 %></td>
+    <td><%= winning_number.winning_number_6 %></td>
+    <td><%= winning_number.winning_number_bonus %></td>
+    <td><%= link_to 'Show', winning_number %></td>
+    <td><%= link_to 'Edit', edit_winning_number_path(winning_number) %></td>
+    <td><%= link_to 'Destroy', winning_number, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Winning number', new_winning_number_path %>

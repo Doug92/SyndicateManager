@@ -1,0 +1,48 @@
+<%= form_for(@winning_number) do |f| %>
+    <% if @winning_number.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@winning_number.errors.count, "error") %> prohibited this winning_number from being saved:</h2>
+
+          <ul>
+            <% @winning_number.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <table border="1" bordercolor="#FFCC00" style="background-color:#FFFFCC" width="100%" cellpadding="3" cellspacing="3">
+
+
+          <tr>
+                <th colspan="8"><h3>Winning Numbers</h3></th>
+
+              </tr>
+
+    	<tr>
+    		<td>Date</td>
+            <td>One</td>
+    		<td>Two</td>
+    		<td>Three</td>
+    		<td>Four</td>
+    		<td>Five</td>
+    		<td>Six</td>
+    		<td>Bonus</td>
+    	</tr>
+    	<tr>
+    		<td><%= f.date_select :winning_numbers_date %></td>
+    		<td><%= f.select :winning_number_1, options_for_select(1..49) %></td>
+    		<td><%= f.select :winning_number_2, options_for_select(1..49) %></td>
+    		<td><%= f.select :winning_number_3, options_for_select(1..49) %></td>
+    		<td><%= f.select :winning_number_4, options_for_select(1..49) %></td>
+    		<td><%= f.select :winning_number_5, options_for_select(1..49) %></td>
+    		<td><%= f.select :winning_number_6, options_for_select(1..49) %></td>
+            <td><%= f.select :winning_number_bonus, options_for_select(1..49) %></td>
+    	</tr>
+    </table>
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
