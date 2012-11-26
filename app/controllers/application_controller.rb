@@ -10,6 +10,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def is_manager?
+    if (current_user.manager == true)
+      true
+    else
+      redirect_to root_url
+    end
+  end
+
+
 #end
   private
 
@@ -21,10 +30,10 @@ class ApplicationController < ActionController::Base
   end
 
   def is_superuser_or_manager?
-    if (current_user.user_type == "Manager" || "Super")
+    if (current_user.admin == true || current_user.manager == true)
       true
     else
-      redirect_to store_url
+      redirect_to root_url
     end
   end
 

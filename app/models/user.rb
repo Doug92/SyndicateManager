@@ -13,12 +13,14 @@
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  password_digest     :string(255)
+#  remember_token      :string(255)
+#  admin               :boolean          default(FALSE)
+#  manager             :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :user_firstname, :user_surname, :current_balance, \
-    :user_payment_status, :user_status, :user_type, :admin
-    #User.create(user_firstname: "Doug", user_surname: "Armstrong", current_balance: "0", user_payment_status: "new", #user_status: "new", user_type: "member", email: "doug.a.armstrong@gmail.com",password: "foobar", password_confirmation: "foobar", )
+    :user_payment_status, :user_status, :user_type, :admin, :manager
   has_secure_password
   has_and_belongs_to_many :syndicates
   #validates_associated :syndicates
@@ -36,10 +38,13 @@ class User < ActiveRecord::Base
 
   before_save :create_remember_token
 
+
   validates :user_type,
       :inclusion  => { :in => [ 'Member', 'Super', 'Manager' ] ,
       :message    => "%{value} is not a valid user type" }
 
+
+  # New Syndicate Manager, Approved Manager >> By Superuser.
   validates :user_status,
         :inclusion  => { :in => [ 'new', 'approved' ] ,
         :message    => "%{value} is not a valid status type" }

@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update, :index, :show]
-    before_filter :is_admin?, only: [:edit, :update, :index, :show]
+  #  before_filter :is_admin?, only: [:edit, :update, :index, :show]
+  before_filter :is_superuser_or_manager?, only: [:edit, :update, :index, :show]
   # GET /payments
   # GET /payments.json
   def index

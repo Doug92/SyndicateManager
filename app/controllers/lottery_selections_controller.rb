@@ -1,10 +1,12 @@
 class LotterySelectionsController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update, :index, :show]
-  before_filter :is_admin?, only: [:edit, :update, :index, :show]
+  #before_filter :is_admin?, only: [:edit, :update, :index, :show]
+  before_filter :is_superuser_or_manager?, only: [:edit, :update, :index, :show]
     #before_filter :correct_user, only: [:edit, :update]
   # GET /lottery_selections
   # GET /lottery_selections.json
   def index
+    #if is_manager(params[:id]) == true
     @lottery_selections = LotterySelection.all
 
     respond_to do |format|

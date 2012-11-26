@@ -1,6 +1,7 @@
 class SyndicatesController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update, :index, :show]
-    before_filter :is_admin?, only: [:edit, :update, :index, :show]
+  #before_filter :is_admin?, only: [:edit, :update, :index, :show]
+  before_filter :is_superuser_or_manager?, only: [:edit, :update, :index, :show]
   # GET /syndicates
   # GET /syndicates.json
   def index

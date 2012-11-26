@@ -1,7 +1,8 @@
 class WinningNumbersController < ApplicationController
 
   before_filter :signed_in_user, only: [:edit, :update, :index, :show]
-  before_filter :is_admin?, only: [:edit, :update, :index, :show]
+  #before_filter :is_admin?, only: [:edit, :update, :index, :show]
+  before_filter :is_superuser_or_manager?, only: [:edit, :update, :index, :show]
   #  before_filter :correct_user,   only: [:edit, :update]
 
   # GET /winning_numbers
