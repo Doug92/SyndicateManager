@@ -9,7 +9,7 @@
 #
 
 class Syndicate < ActiveRecord::Base
-  attr_accessible :syndicate_name
+  attr_accessible :syndicate_name, :status
   has_and_belongs_to_many :users
   #validates_associated :users
   has_many :lottery_selections

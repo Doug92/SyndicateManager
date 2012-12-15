@@ -1,9 +1,24 @@
 class SyndicatesController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update, :index, :show]
+  before_filter :signed_in_user, only: [:edit, :update, :index, :show, :status]
   #before_filter :is_admin?, only: [:edit, :update, :index, :show]
-  before_filter :is_superuser_or_manager?, only: [:edit, :update, :index, :show]
+  before_filter :is_superuser_or_manager?, only: [:edit, :update, :index, :show, :status]
   # GET /syndicates
   # GET /syndicates.json
+
+  def reject
+      @syndicate = Syndicate.find(params[:id])
+      @syndicate.status = "rejected"
+      @syndicate.save
+      SyndicateRejectedMailer.syndicate_rejected_email(@syndicate).deliver
+  end
+
+  def approve
+        @syndicate = Syndicate.find(params[:id])
+        @syndicate.status = "approved"
+        @syndicate.save
+        SyndicateApprovedMailer.syndicate_approved_email(@syndicate).deliver
+  end
+
   def index
     @syndicates = Syndicate.all
 
@@ -44,7 +59,10 @@ class SyndicatesController < ApplicationController
   # POST /syndicates.json
   def create
     @syndicate = Syndicate.new(params[:syndicate])
-
+    #@order = Order.create(:order_date => Time.now, :customer_id => @customer.id)
+    #@syndicate = Syndicate.create(:syndicate_name, :user_id => @user.id)
+    #@order = @customer.orders.create(:order_date => Time.now)
+    #@syndicate = @user.syndicate_name.users#.create
     respond_to do |format|
       if @syndicate.save
         format.html { redirect_to @syndicate, notice: 'Syndicate was successfully created.' }
@@ -84,4 +102,10 @@ class SyndicatesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+
+
+
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126164208) do
+ActiveRecord::Schema.define(:version => 20121129202115) do
 
   create_table "lottery_selections", :force => true do |t|
     t.integer  "syndicate_id"
@@ -36,8 +36,9 @@ ActiveRecord::Schema.define(:version => 20121126164208) do
 
   create_table "syndicates", :force => true do |t|
     t.string   "syndicate_name"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "status",         :default => "pending"
   end
 
   create_table "syndicates_users", :id => false, :force => true do |t|

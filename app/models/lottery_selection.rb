@@ -24,4 +24,15 @@ class LotterySelection < ActiveRecord::Base
   validates :lottery_selection_1, :lottery_selection_2, :lottery_selection_3, :lottery_selection_4,\
    :lottery_selection_5, :lottery_selection_6, :presence => true, :numericality => {:greater_than_or_equal_to => 1}, \
    :numericality => {:less_than_or_equal_to => 49}
+
+  UNIQU_FIELDS = [:lottery_selection_1, :lottery_selection_2, :lottery_selection_3, :lottery_selection_4,\
+     :lottery_selection_5, :lottery_selection_6]
+
+    validate :lottery_numbers_are_unique
+
+    def lottery_numbers_are_unique
+        unless UNIQU_FIELDS.map{|field| self[field] }.uniq.length == UNIQU_FIELDS.length
+          errors[:base] << "You have repeated one or more numbers for that day's draw"
+        end
+    end
 end

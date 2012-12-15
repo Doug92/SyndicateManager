@@ -21,19 +21,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user_surname: MyString
-  user_firstname: MyString
-  user_email: MyString
-  user_status: MyString
-  user_payment_status: MyString
-  user_type: MyString
-  current_balance: 9.99
+  user_surname: Smith
+  user_firstname: John
+  user_email: John@gmail.com
+  user_status: new
+  user_payment_status: credit
+  user_type: manager
+  current_balance: 0
 
 two:
-  user_surname: MyString
-  user_firstname: MyString
-  user_email: MyString
-  user_status: MyString
-  user_payment_status: MyString
-  user_type: MyString
-  current_balance: 9.99
+  user_surname: O'Leary
+  user_firstname: James
+  user_email: j@gmail.cm
+  user_status: approved
+  user_payment_status: debit
+  user_type: member
+  current_balance: 10

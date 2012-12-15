@@ -20,19 +20,19 @@
 one:
   syndicate_id: 1
   lottery_selection_1: 1
-  lottery_selection_2: 1
-  lottery_selection_3: 1
-  lottery_selection_4: 1
-  lottery_selection_5: 1
-  lottery_selection_6: 1
-  lottery_selection_date: 2012-10-29 16:41:40
+  lottery_selection_2: 2
+  lottery_selection_3: 3
+  lottery_selection_4: 4
+  lottery_selection_5: 5
+  lottery_selection_6: 6
+  lottery_selection_date: 2012-10-28 16:41:40
 
 two:
   syndicate_id: 1
-  lottery_selection_1: 1
-  lottery_selection_2: 1
-  lottery_selection_3: 1
-  lottery_selection_4: 1
-  lottery_selection_5: 1
-  lottery_selection_6: 1
+  lottery_selection_1: 2
+  lottery_selection_2: 3
+  lottery_selection_3: 4
+  lottery_selection_4: 5
+  lottery_selection_5: 6
+  lottery_selection_6: 7
   lottery_selection_date: 2012-10-29 16:41:40

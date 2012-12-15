@@ -8,15 +8,24 @@ SyndicateManager::Application.routes.draw do
 
   resources :users
 
+
   resources :syndicates
+  match "/syndicates/:id/approve"  => "syndicates#approve"  , :as => :approve
+  match "/syndicates/:id/reject"  => "syndicates#reject"  , :as => :reject
 
   resources :main
 
   resources :sessions, only: [:new, :create, :destroy]
 
+  get 'admin' => 'users#adminhome'
+
+  #match '/session', to: 'users#adminhome'
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+
+
+  #match '/syndicates/:id/approval' => 'syndicates#approval'
 
   #match '/syndicates_users' =>
 
@@ -30,6 +39,7 @@ SyndicateManager::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+  #match 'syndicates/:id/approve' => 'syndicates#approve', :as => :approve
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

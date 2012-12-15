@@ -13,24 +13,47 @@
     <th></th>
     <th></th>
   </tr>
+  <% if current_user.admin %>
+      <h1>Superuser View of Members</h1>
+      <% @users.each do |user| %>
+          <tr>
+            <td><%= user.user_firstname %></td>
+            <td><%= user.user_surname %></td>
+            <td><%= user.email %></td>
+            <td><%= user.user_status %></td>
+            <td><%= user.user_payment_status %></td>
+            <td><%= user.user_type %></td>
+            <td><%= user.current_balance %></td>
+            <td><%= link_to 'Show', user %></td>
+            <td><%= link_to 'Edit', edit_user_path(user) %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+  <% elsif %>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.user_firstname %></td>
-    <td><%= user.user_surname %></td>
-    <td><%= user.email %></td>
-    <td><%= user.user_status %></td>
-    <td><%= user.user_payment_status %></td>
-    <td><%= user.user_type %></td>
-    <td><%= user.current_balance %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+      <% if current_user.manager %>
+          <h1>Manager View of Members</h1>
+          <% @users.each do |user| %>
+              <tr>
+                <td><%= user.user_firstname %></td>
+                <td><%= user.user_surname %></td>
+                <td><%= user.email %></td>
+                <td><%= user.user_status %></td>
+                <td><%= user.user_payment_status %></td>
+                <td><%= user.user_type %></td>
+                <td><%= user.current_balance %></td>
+                <td><%= link_to 'Show', user %></td>
+                <td><%= link_to 'Edit', edit_user_path(user) %></td>
+                <td><%= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?' } %></td>
+              </tr>
+          <% end %>
+      <% else %>
+          <h1>Ordinary View of Members - shouldn't be visible</h1>
+      <% end %>
+  <% end %>
 </table>
 
-<br />
+<br/>
 
 <%= link_to 'New Member', new_user_path %></ br>
 <%= link_to 'New Syndicate', new_syndicate_path %>

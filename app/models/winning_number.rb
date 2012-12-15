@@ -38,6 +38,17 @@ class WinningNumber < ActiveRecord::Base
   #doesn't work    - I want it to check all attributes on single row for uniqueness. This checks column uniqueness
   #validates_uniqueness_of :winning_number_1, :winning_number_2, :winning_number_3,\
      #  :winning_number_4, :winning_number_5, :winning_number_6, :winning_number_bonus
+
+  UNIQ_FIELDS = [:winning_number_1, :winning_number_2, :winning_number_3,
+    :winning_number_4, :winning_number_5, :winning_number_6, :winning_number_bonus]
+
+  validate :winning_numbers_are_unique
+
+  def winning_numbers_are_unique
+      unless UNIQ_FIELDS.map{|field| self[field] }.uniq.length == UNIQ_FIELDS.length
+        errors[:base] << "You have repeated one or more numbers for that day's draw"
+      end
+  end
 end
 
        #rails custom validation on google
