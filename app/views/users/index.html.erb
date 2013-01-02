@@ -7,7 +7,7 @@
     <th>Email</th>
     <th>User Status</th>
     <th>Payment status</th>
-    <th>User type</th>
+
     <th>Current balance</th>
     <th></th>
     <th></th>
@@ -22,7 +22,7 @@
             <td><%= user.email %></td>
             <td><%= user.user_status %></td>
             <td><%= user.user_payment_status %></td>
-            <td><%= user.user_type %></td>
+
             <td><%= user.current_balance %></td>
             <td><%= link_to 'Show', user %></td>
             <td><%= link_to 'Edit', edit_user_path(user) %></td>
@@ -43,7 +43,7 @@
                 <td><%= user.email %></td>
                 <td><%= user.user_status %></td>
                 <td><%= user.user_payment_status %></td>
-                <td><%= user.user_type %></td>
+
                 <td><%= user.current_balance %></td>
                 <td><%= link_to 'Show', user %></td>
                 <td><%= link_to 'Edit', edit_user_path(user) %></td>

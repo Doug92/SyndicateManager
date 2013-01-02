@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129202115) do
+ActiveRecord::Schema.define(:version => 20130102215425) do
 
   create_table "lottery_selections", :force => true do |t|
     t.integer  "syndicate_id"
@@ -52,14 +52,13 @@ ActiveRecord::Schema.define(:version => 20121129202115) do
     t.string   "email"
     t.string   "user_status"
     t.string   "user_payment_status"
-    t.string   "user_type"
-    t.decimal  "current_balance",     :precision => 4, :scale => 2
     t.datetime "created_at",                                                           :null => false
     t.datetime "updated_at",                                                           :null => false
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",                                             :default => false
     t.boolean  "manager",                                           :default => false
+    t.decimal  "current_balance",     :precision => 4, :scale => 2, :default => 0.0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

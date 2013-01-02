@@ -20,7 +20,7 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :user_firstname, :user_surname, :current_balance, \
-    :user_payment_status, :user_status, :user_type, :admin, :manager
+    :user_payment_status, :user_status, :admin, :manager  # , :user_type
   has_secure_password
   has_and_belongs_to_many :syndicates
   #validates_associated :syndicates
@@ -39,9 +39,9 @@ class User < ActiveRecord::Base
   before_save :create_remember_token
 
 
-  validates :user_type,
-      :inclusion  => { :in => [ 'Member', 'Super', 'Manager' ] ,
-      :message    => "%{value} is not a valid user type" }
+  #validates :user_type,
+  #    :inclusion  => { :in => [ 'Member', 'Super', 'Manager' ] ,
+  #    :message    => "%{value} is not a valid user type" }
 
 
   # New Syndicate Manager, Approved Manager >> By Superuser.
