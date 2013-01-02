@@ -7,6 +7,8 @@ SyndicateManager::Application.routes.draw do
   resources :payments
 
   resources :users
+  match "/users/:id/approve_man"  => "users#approve_man"  , :as => :approve_man
+  match "/users/:id/reject_man"  => "users#reject_man"  , :as => :reject_man
 
 
   resources :syndicates

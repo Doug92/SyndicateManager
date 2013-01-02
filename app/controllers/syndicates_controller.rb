@@ -12,12 +12,20 @@ class SyndicatesController < ApplicationController
       SyndicateRejectedMailer.syndicate_rejected_email(@syndicate).deliver
   end
 
+  #def approve
+  #      @syndicate = Syndicate.find(params[:id])
+  #      @syndicate.status = "approved"
+  #      @syndicate.save
+  #      SyndicateApprovedMailer.syndicate_approved_email(@syndicate).deliver
+  #end
   def approve
-        @syndicate = Syndicate.find(params[:id])
-        @syndicate.status = "approved"
-        @syndicate.save
-        SyndicateApprovedMailer.syndicate_approved_email(@syndicate).deliver
-  end
+          @syndicate = Syndicate.find(params[:id])
+          @syndicate.status = "approved"
+          @syndicate.save
+          SyndicateApprovedMailer.syndicate_approved_email(@syndicate).deliver
+    end
+
+
 
   def index
     @syndicates = Syndicate.all
@@ -50,6 +58,10 @@ class SyndicatesController < ApplicationController
     end
   end
 
+
+
+
+
   # GET /syndicates/1/edit
   def edit
     @syndicate = Syndicate.find(params[:id])
@@ -57,23 +69,48 @@ class SyndicatesController < ApplicationController
 
   # POST /syndicates
   # POST /syndicates.json
+
+  #def create
+  #  @syndicate = Syndicate.new(params[:syndicate])
+
+  #  respond_to do |format|
+  #    if @syndicate.save
+  #      format.html { redirect_to @syndicate, notice: 'Syndicate was successfully created.' }
+  #      format.json { render json: @syndicate, status: :created, location: @syndicate }
+  #      ApproveSyndicate.new_syndicate_email(@syndicate).deliver
+  #    else
+  #      format.html { render action: "new" }
+  #      format.json { render json: @syndicate.errors, status: :unprocessable_entity }
+  #    end
+  #  end
+  #end
+
   def create
-    @syndicate = Syndicate.new(params[:syndicate])
-    #@order = Order.create(:order_date => Time.now, :customer_id => @customer.id)
-    #@syndicate = Syndicate.create(:syndicate_name, :user_id => @user.id)
-    #@order = @customer.orders.create(:order_date => Time.now)
-    #@syndicate = @user.syndicate_name.users#.create
-    respond_to do |format|
-      if @syndicate.save
-        format.html { redirect_to @syndicate, notice: 'Syndicate was successfully created.' }
-        format.json { render json: @syndicate, status: :created, location: @syndicate }
-        ApproveSyndicate.new_syndicate_email(@syndicate).deliver
-      else
-        format.html { render action: "new" }
-        format.json { render json: @syndicate.errors, status: :unprocessable_entity }
+      @syndicate = Syndicate.new(params[:syndicate])
+      #@user = User.find(session[:user_id])
+      #@user.syndicates
+      #@user.syndicates.push(@syndicate)
+
+      respond_to do |format|
+        if @syndicate.save
+          format.html { redirect_to @syndicate, notice: 'Syndicate was successfully created.' }
+          format.json { render json: @syndicate, status: :created, location: @syndicate }
+          ApproveSyndicate.new_syndicate_email(@syndicate).deliver
+        else
+          format.html { render action: "new" }
+          format.json { render json: @syndicate.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
+
+
+  #@user = User.find(session[:user_id])
+  #           @user.syndicates
+  #           s = Syndicates.new
+  #           s.syndicate_name
+  #           s.save
+  #           @user.syndicates.push(s)
+
 
   # PUT /syndicates/1
   # PUT /syndicates/1.json

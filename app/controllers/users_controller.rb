@@ -3,9 +3,26 @@ class UsersController < ApplicationController
   #before_filter :is_admin?, only: [:edit, :update, :index, :show]
   before_filter :is_superuser_or_manager?, only: [:edit, :update, :index, :show, :adminhome]
   #before_filter :correct_user, only: [:edit, :update]
+  #helper_method :is_admin?
+  #cattr_accessor :current_user
 
   # GET /users
   # GET /users.json
+
+  def reject_man
+        @user = User.find(params[:id])
+        @user.manager = false
+        @user.save
+       # SyndicateRejectedMailer.syndicate_rejected_email(@syndicate).deliver
+    end
+
+    def approve_man
+      @user = User.find(params[:id])
+              @user.manager = true
+              @user.save
+          #SyndicateApprovedMailer.syndicate_approved_email(@syndicate).deliver
+    end
+
   def index
     @users = User.all
     #@users = Syndicate.find_by_syndicate_name('Alpha').users

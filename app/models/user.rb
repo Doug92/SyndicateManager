@@ -33,8 +33,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
   before_save { |user| user.email = email.downcase }
 
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+  validates :password, presence: true, length: { minimum: 6 },  :if => :admin?
+  validates :password_confirmation, presence: true,    :if => :admin?
 
   before_save :create_remember_token
 
@@ -58,7 +58,23 @@ class User < ActiveRecord::Base
  #   flash[:notice] = 'Syndicate Detail was saved.'
  # end
 
+  #def is_admin?
+  #    if (current_user.admin == true)
+  #      true
+  #    else
+  #      redirect_to root_url
+  #    end
+  #  end
 
+
+  def add_syndicate
+    @user = User.find(session[:user_id])
+    @user.syndicates
+    s = Syndicates.new
+    s.syndicate_name
+    s.save
+    @user.syndicates.push(s)
+  end
 
   private
 
