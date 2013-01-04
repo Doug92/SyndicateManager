@@ -10,18 +10,32 @@ class UsersController < ApplicationController
   # GET /users.json
 
   def reject_man
-        @user = User.find(params[:id])
-        @user.manager = false
-        @user.save
-       # SyndicateRejectedMailer.syndicate_rejected_email(@syndicate).deliver
-    end
-
-    def approve_man
       @user = User.find(params[:id])
-              @user.manager = true
-              @user.save
-          #SyndicateApprovedMailer.syndicate_approved_email(@syndicate).deliver
-    end
+      @user.manager = false
+      @user.save
+      #SyndicateRejectedMailer.syndicate_rejected_email(@syndicate).deliver
+  end
+
+  def approve_man
+      @user = User.find(params[:id])
+      @user.manager = true
+      @user.save
+      #SyndicateApprovedMailer.syndicate_approved_email(@syndicate).deliver
+  end
+
+  def payment_minus
+    @user = User.find(params[:id])
+    @user.current_balance -= 1
+    @user.save
+    redirect_to users_url
+  end
+
+  def payment_plus
+      @user = User.find(params[:id])
+      @user.current_balance += 1
+      @user.save
+      redirect_to users_url
+  end
 
   def index
     @users = User.all
@@ -66,6 +80,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def paymts
+    @user = User.find(params[:id])
+  redirect_to payments_path
+
+
+  end
   # POST /users
   # POST /users.json
  # def create
@@ -116,6 +136,8 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -127,29 +149,5 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-
-
-  #def is_superuser_or_manager
-  # @user_type = User.find_by_id(session[:user_type])
-  # if @user_type == ("Super" || "Manager")
-  #   true
-  # else
-  #   redirect_to(root_path)
-  #    # redirect_to signin_url, notice: "Please sign in." unless superuser_or_manager?
-  # end
-  #end
-  #def is_superuser_or_manager
-   # if (current_user.user_type == "Member" || "Super")
-  #    true
-  #  else
-  #    redirect_to store_url
-  #  end
- # end
-
-  #def correct_user
-  #  @user = User.find(params[:id])
-  #  redirect_to(root_path) unless current_user?(@user)
-# end
 
 end

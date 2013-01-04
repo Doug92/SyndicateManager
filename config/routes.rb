@@ -9,7 +9,10 @@ SyndicateManager::Application.routes.draw do
   resources :users
   match "/users/:id/approve_man"  => "users#approve_man"  , :as => :approve_man
   match "/users/:id/reject_man"  => "users#reject_man"  , :as => :reject_man
+  match "/users/:id/payment_minus"  => "users#payment_minus"  , :as => :payment_minus
+  match "/users/:id/payment_plus"  => "users#payment_plus"  , :as => :payment_plus
 
+  match "/users/:id/paymts" => "users#paymts" , :as => :paymts
 
   resources :syndicates
   match "/syndicates/:id/approve"  => "syndicates#approve"  , :as => :approve

@@ -37,8 +37,14 @@ class PaymentsController < ApplicationController
 
   # GET /payments/1/edit
   def edit
+   # begin
     @payment = Payment.find(params[:id])
+ # rescue ActiveRecord::RecordNotFound => e
+  #  @payment = nil
+    #@payment = Payment.find_by_id
+    #  end
   end
+
 
   # POST /payments
   # POST /payments.json

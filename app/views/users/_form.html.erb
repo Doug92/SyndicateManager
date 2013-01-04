@@ -34,17 +34,13 @@
                 <td>Confirm Password:</td>
                 <td><%= f.password_field :password_confirmation %></td>
                </tr>
-            <tr>
-                <td>Status:</td>
-                <td><%= f.select :user_status, options_for_select(["new","approved"]) %></td>
 
-            </tr>
 
 
             <tr>
                 <td>Balance:</td>
 
-              <td><%= f.select :current_balance, options_for_select([0]) %></td>
+              <td><%= @user.current_balance %></td>
             </tr>
     </table>
   </div>
