@@ -75,6 +75,13 @@ class User < ActiveRecord::Base
   end
 
 
+  #def payment_all_minus
+   #   @users.each do |user|
+   #       @user = User(params[:id])
+   #       @user.current_balance -= 1
+   #       @user.save
+   #   end
+
 
 
   def add_payment

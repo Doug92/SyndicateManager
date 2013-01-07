@@ -9,19 +9,16 @@ class SyndicatesController < ApplicationController
       @syndicate = Syndicate.find(params[:id])
       @syndicate.status = "rejected"
       @syndicate.save
+      redirect_to syndicates_url
       SyndicateRejectedMailer.syndicate_rejected_email(@syndicate).deliver
   end
 
-  #def approve
-  #      @syndicate = Syndicate.find(params[:id])
-  #      @syndicate.status = "approved"
-  #      @syndicate.save
-  #      SyndicateApprovedMailer.syndicate_approved_email(@syndicate).deliver
-  #end
+
   def approve
           @syndicate = Syndicate.find(params[:id])
           @syndicate.status = "approved"
           @syndicate.save
+          redirect_to syndicates_url
           SyndicateApprovedMailer.syndicate_approved_email(@syndicate).deliver
     end
 

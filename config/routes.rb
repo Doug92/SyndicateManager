@@ -11,9 +11,11 @@ SyndicateManager::Application.routes.draw do
   match "/users/:id/reject_man"  => "users#reject_man"  , :as => :reject_man
   match "/users/:id/payment_minus"  => "users#payment_minus"  , :as => :payment_minus
   match "/users/:id/payment_plus"  => "users#payment_plus"  , :as => :payment_plus
-
   match "/users/:id/paymts" => "users#paymts" , :as => :paymts
 
+
+  match "/users/minus_all" => "users#payment_all_minus", :as => :payment_all_minus
+  match "/users/undo_minus_all" => "users#payment_all_minus_undo", :as => :payment_all_minus_undo
   resources :syndicates
   match "/syndicates/:id/approve"  => "syndicates#approve"  , :as => :approve
   match "/syndicates/:id/reject"  => "syndicates#reject"  , :as => :reject

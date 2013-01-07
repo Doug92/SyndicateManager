@@ -37,6 +37,8 @@ class UsersController < ApplicationController
       redirect_to users_url
   end
 
+
+
   def index
     @users = User.all
     #@users = Syndicate.find_by_syndicate_name('Alpha').users
@@ -46,6 +48,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def payment_all_minus
+     User.update_all("current_balance = current_balance - 1")
+     redirect_to users_url
+  end
+
+  def payment_all_minus_undo
+     User.update_all("current_balance = current_balance + 1")
+     redirect_to users_url
+  end
 
   # GET /users/1
   # GET /users/1.json

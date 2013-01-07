@@ -1,5 +1,15 @@
-<h1>User Listing</h1>
+<h1 xmlns="http://www.w3.org/1999/html"></h1>
 
+
+<table>
+  <tr>
+  <td><%= button_to 'New Member', new_user_path, :method => :get %> </td>
+    <td><%= button_to 'New Syndicate', new_syndicate_path, :method => :get %> </td>
+    <td><%= button_to 'Minus 1 Euro for ALL', :action => :payment_all_minus %></td>
+    <td><%= button_to 'Undo Minus 1 for ALL', :action => :payment_all_minus_undo %>  </td>
+  </tr>
+</table>
+</br>
 <table>
   <tr>
     <th>Firstname</th>
@@ -24,13 +34,15 @@
 
 
             <td><%= user.current_balance %></td>
-            <td><%= link_to 'Show', user %></td>
-            <td><%= link_to 'Edit', edit_user_path(user) %></td>
-            <td><%= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?' } %></td>
-            <td><%= link_to 'Approve', approve_man_url(:id => user.id), data: { confirm: 'Are you sure you want to approve this new Manager' } %></td>
-            <td><%= link_to 'Reject', reject_man_url(:id =>user.id), data: { confirm: 'Are you sure you want to reject this new Manager?' } %></td>
-            <td><%= link_to 'Add 1 Euro', payment_plus_path(:id => user.id) %></td>
-            <td><%= link_to 'Subtract 1 Euro', payment_minus_path(:id => user.id) %></td>
+            <td><%= button_to 'User Profile', user, :method => :get %></td>
+            <td><%= button_to 'Edit', edit_user_path(user), :method => :get %></td>
+            <td><%= button_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?' } %></td>
+            <td><%= button_to 'Approve', approve_man_url(:id => user.id), data: { confirm: 'Are you sure you want to approve this new Manager' } %></td>
+            <td><%= button_to 'Reject', reject_man_url(:id =>user.id), data: { confirm: 'Are you sure you want to reject this new Manager?' } %></td>
+            <td><%= button_to 'Add 1 Euro', payment_plus_path(:id => user.id) %></td>
+            <td><%= button_to 'Subtract 1 Euro', payment_minus_path(:id => user.id) %></td>
+
+
           </tr>
       <% end %>
   <% elsif %>
@@ -46,12 +58,12 @@
 
 
                 <td><%= user.current_balance %></td>
-                <td><%= link_to 'Show', user %></td>
-                <td><%= link_to 'Edit User Details', edit_user_path(user) %></td>
-                <td><%= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?' } %></td>
-
-                <td><%= link_to 'Add 1 Euro', payment_minus_url(:id => user.id) %></td>
-              </tr>
+                <td><%= button_to 'User Profile', user, :method => :get %></td>
+                <td><%= button_to 'Edit User Details', edit_user_path(user), :method => :get %></td>
+                <td><%= button_to 'Delete User', user, method: :delete, data: {confirm: 'Are you sure?' } %></td>
+                <td><%= button_to 'Add 1 Euro to Balance', payment_plus_url(:id => user.id) %></td>
+                <td><%= button_to 'Subtract 1 Euro from Balance', payment_minus_url(:id => user.id) %></td>
+               </tr>
           <% end %>
       <% else %>
           <h1>Ordinary View of Members - shouldn't be visible</h1>
@@ -61,5 +73,4 @@
 
 <br/>
 
-<%= link_to 'New Member', new_user_path %></ br>
-<%= link_to 'New Syndicate', new_syndicate_path %>
+

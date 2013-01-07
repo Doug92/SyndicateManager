@@ -2,5 +2,9 @@
 
 
 
-<%= link_to 'Manager Approvals', :controller => :users, :action => :index %></ br>
-<%= link_to 'Syndicate Approvals', :controller => :syndicates, :action => :index %>
+<table align=center>
+<tr>
+<td><h2><%= link_to 'Manager Approvals & Management', :controller => :users, :action => :index, :method => :get %>|</h2></td>
+  <td><h2><%= link_to 'Syndicate Approvals & Management', :controller => :syndicates, :action => :index, :method => :get %></h2></td>
+  </tr>
+</table>
